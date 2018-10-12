@@ -12,6 +12,10 @@ tester.run("textlint-rule-no-unmatched-pair", rule, {
         },
         {
             text: `John said "Hello World!".`
+        },
+
+        {
+            text: "`(` is ok."
         }
     ],
     invalid: [

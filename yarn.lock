@@ -3180,6 +3180,12 @@ text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
 
+textlint-rule-helper@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/textlint-rule-helper/-/textlint-rule-helper-2.0.0.tgz#95cb4696c95c4258d2e3389e9e64b849f9721382"
+  dependencies:
+    unist-util-visit "^1.1.0"
+
 textlint-scripts@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/textlint-scripts/-/textlint-scripts-2.1.0.tgz#7fb05b87bba40b8c94d7500c043930b91f413e11"
