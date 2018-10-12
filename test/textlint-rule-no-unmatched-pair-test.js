@@ -13,9 +13,11 @@ tester.run("textlint-rule-no-unmatched-pair", rule, {
         {
             text: `John said "Hello World!".`
         },
-
         {
             text: "`(` is ok."
+        },
+        {
+            text: "文字列リテラルには3種類ありますが、まずは`\"`（ダブルクオート）と`'`（シングルクオート）について見ていきます。"
         }
     ],
     invalid: [
@@ -27,7 +29,7 @@ tester.run("textlint-rule-no-unmatched-pair", rule, {
                     message: `Not found pair character for （.
                     
 You should close this sentence with ）.
-This pair mark is called round bracket（）.`
+This pair mark is called 丸括弧（）.`
                 }
             ]
         },
@@ -40,6 +42,15 @@ This pair mark is called round bracket（）.`
                     
 You should close this sentence with ".
 This pair mark is called double quote.`
+                }
+            ]
+        },
+        {
+            text: "`src/App.js`にファイルを作成し、次のような内容のJavaScriptモジュールとします。\n"
+                + "モジュールは、基本的には何かしらを外部に公開(`export`）します。",
+            errors: [
+                {
+                    index: 23
                 }
             ]
         }

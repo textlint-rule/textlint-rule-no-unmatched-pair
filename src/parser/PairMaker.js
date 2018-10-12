@@ -23,9 +23,9 @@ const PAIR_MARKS = [
         end: `]`
     },
     {
-        key: "round bracket（）",
-        start: `（`,
-        end: `）`
+        key: "round bracket()",
+        start: `(`,
+        end: `)`
     },
     {
         key: "curly brace{}",
@@ -38,14 +38,14 @@ const PAIR_MARKS = [
         end: `」`
     },
     {
+        key: "丸括弧（）",
+        start: `（`,
+        end: `）`
+    },
+    {
         key: "二重かぎ括弧『』",
         start: `『`,
         end: `』`
-    },
-    {
-        key: "全角丸括弧()",
-        start: `(`,
-        end: `)`
     },
     {
         key: "波括弧｛｝",

@@ -6,11 +6,11 @@ textlint rule that check unmatched pairs like `（` and `]`
 
 - double quote: `"` and `"`
 - angled bracket[]: `[` and `]`
-- round bracket（）: `（` and `）`
+- round bracket(): `(` and `)`
 - curly brace{}: `{` and `}`
 - かぎ括弧「」: `「` and `」`
+- 丸括弧（）: `（` and `）`
 - 二重かぎ括弧『』: `『` and `』`
-- 全角丸括弧(): `(` and `)`
 - 波括弧｛｝: `｛` and `｝`
 - 角括弧［］: `［` and `］`
 - 重角括弧〚〛: `〚` and `〛`
