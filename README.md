@@ -1,4 +1,4 @@
-# @textlint-rule/textlint-rule-no-unmatched-pair
+# @textlint-rule/textlint-rule-no-unmatched-pair [![Build Status](https://travis-ci.org/textlint-rule/textlint-rule-no-unmatched-pair.svg?branch=master)](https://travis-ci.org/textlint-rule/textlint-rule-no-unmatched-pair)
 
 textlint rule that check unmatched pairs like `（` and `]`
 
