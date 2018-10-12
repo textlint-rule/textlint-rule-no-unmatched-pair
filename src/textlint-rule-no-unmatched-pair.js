@@ -10,7 +10,15 @@ const report = context => {
     return {
         [Syntax.Paragraph](node) {
             const sentences = splitAST(node);
-            ignoreNodeManager.ignoreChildrenByTypes(node, [Syntax.Code]);
+            ignoreNodeManager.ignoreChildrenByTypes(node, [
+                Syntax.CodeBlock,
+                Syntax.Code,
+                Syntax.Link,
+                Syntax.Strong,
+                Syntax.Emphasis,
+                Syntax.BlockQuote,
+                Syntax.Comment
+            ]);
             sentences.children.filter(node => node.type === SentenceSyntax.Sentence).forEach(sentence => {
                 const source = new SourceCode(sentence.raw);
                 const pairMaker = new PairMaker();
