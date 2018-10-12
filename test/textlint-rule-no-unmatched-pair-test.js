@@ -23,7 +23,7 @@ tester.run("textlint-rule-no-unmatched-pair", rule, {
                     message: `Not found pair character for （.
                     
 You should close this sentence with ）.
-This pair mark is called bracket（）.`
+This pair mark is called round bracket（）.`
                 }
             ]
         },
