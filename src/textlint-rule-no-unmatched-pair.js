@@ -38,7 +38,7 @@ const report = context => {
                     
 You should close this sentence with ${contextLocation.pairMark.end}.
 This pair mark is called ${contextLocation.pairMark.key}.`, {
-                        index: sentenceIndex + contextLocation.index
+                        index: (sentenceIndex - node.range[0]) + contextLocation.index
                     }));
                 });
             });
