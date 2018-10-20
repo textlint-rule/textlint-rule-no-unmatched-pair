@@ -22,15 +22,17 @@ const report = context => {
             sentences.children.filter(node => node.type === SentenceSyntax.Sentence).forEach(sentence => {
                 const source = new SourceCode(sentence.raw);
                 const pairMaker = new PairMaker();
+                const sentenceIndex = sentence.range[0];
                 while (source.canRead) {
-                    pairMaker.mark(source);
+                    // If the character is in ignored range, skip it
+                    const characterIndex = sentenceIndex + source.index;
+                    if (!ignoreNodeManager.isIgnoredIndex(characterIndex)) {
+                        pairMaker.mark(source);
+                    }
                     source.peek();
                 }
                 // Report Error for each existing context keys
                 source.contextLocations.forEach((contextLocation) => {
-                    if (ignoreNodeManager.isIgnoredIndex(node.range[0] + contextLocation.index)) {
-                        return;
-                    }
                     report(node, new RuleError(`Not found pair character for ${contextLocation.pairMark.start}.
                     
 You should close this sentence with ${contextLocation.pairMark.end}.
