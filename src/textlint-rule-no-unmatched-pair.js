@@ -26,6 +26,7 @@ const report = context => {
                 while (source.canRead) {
                     // If the character is in ignored range, skip it
                     const characterIndex = sentenceIndex + source.index;
+                    // console.log(characterIndex, source.text[source.index], ignoreNodeManager.isIgnoredIndex(characterIndex));
                     if (!ignoreNodeManager.isIgnoredIndex(characterIndex)) {
                         pairMaker.mark(source);
                     }
@@ -37,7 +38,7 @@ const report = context => {
                     
 You should close this sentence with ${contextLocation.pairMark.end}.
 This pair mark is called ${contextLocation.pairMark.key}.`, {
-                        index: contextLocation.index
+                        index: sentenceIndex + contextLocation.index
                     }));
                 });
             });
