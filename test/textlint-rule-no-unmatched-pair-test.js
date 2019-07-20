@@ -21,7 +21,15 @@ tester.run("textlint-rule-no-unmatched-pair", rule, {
 今回のTodoアプリでもTodoリスト（\`#js-todo-list\`）とTodoアイテム数（\`#js-todo-count\`）の2箇所を更新する必要があることからも分かります。
 `, `\`Object.assign\`メソッドは、\`target\`オブジェクトに対して、1つ以上の\`sources\`オブジェクトを指定します。
 \`sources\`オブジェクト自身がもつ列挙可能なプロパティを第一引数の\`target\`オブジェクトに対してコピーします。
-\`Object.assign\`メソッドの返り値は、\`target\`オブジェクトになります。`
+\`Object.assign\`メソッドの返り値は、\`target\`オブジェクトになります。`,
+        // 箇条書き
+        // FIXME: It will be failed
+        // https://github.com/textlint-rule/textlint-rule-no-unmatched-pair/issues/1
+        `
+1) item 1
+2) item 2
+3) item 3
+        `
     ],
     invalid: [
         {
