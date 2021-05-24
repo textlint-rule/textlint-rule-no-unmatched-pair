@@ -1,6 +1,6 @@
 // MIT © 2018 azu
 "use strict";
-const TextLintTester = require("textlint-tester");
+import TextLintTester from "textlint-tester";
 const tester = new TextLintTester();
 // rule
 const rule = require("../src/textlint-rule-no-unmatched-pair.js");
