@@ -7,6 +7,7 @@ const rule = require("../src/textlint-rule-no-unmatched-pair.js");
 // ruleName, rule, { valid, invalid }
 tester.run("textlint-rule-no-unmatched-pair", rule, {
     valid: [
+        `{"{ABC}"}`,
         "これは(秘密)です。",
         `John said "Hello World!".`,
         "`(` is ok.", "文字列リテラルには3種類ありますが、まずは`\"`（ダブルクオート）と`'`（シングルクオート）について見ていきます。",

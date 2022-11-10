@@ -69,17 +69,44 @@ const PAIR_MARKS = [
     }
 ];
 
+// create entries
+// [start.key, mark]
+// [end.key, mark]
+const PAIR_MARKS_ENTRIES = PAIR_MARKS.map(mark => {
+    return [
+        [mark.start, mark],
+        [mark.end, mark]
+    ];
+}).flat(1);
+
+/**
+ * Optimized Map
+ * @type Map<string, {key:string,start:string,end:string}>
+ */
+const PAIR_MARKS_KEY_Map = new Map(PAIR_MARKS_ENTRIES);
+const matchPair = (string) => {
+    return PAIR_MARKS_KEY_Map.get(string);
+}
 // For readme
 // console.log(PAIR_MARKS.map(pair => `- ${pair.key}: \`${pair.start}\` and \`${pair.end}\``).join("\n"));
 export class PairMaker {
+    /**
+     * @param {import("./SourceCode").SourceCode} sourceCode 
+     * @returns 
+     */
     mark(sourceCode) {
         const string = sourceCode.read();
         if (!string) {
             return;
         }
-        // if current is in a context, should not start other context.
-        // PairMaker does not support nest context by design.
-        if (sourceCode.isInContext()) {
+
+        const matchedPair = matchPair(string)
+        if (!matchedPair){
+            return;
+        }
+        // support nested pair
+        // {"{test}"}
+        if (sourceCode.isInContext(matchedPair)) {
             // check that string is end mark?
             const pair = PAIR_MARKS.find(pair => pair.end === string);
             if (pair) {
