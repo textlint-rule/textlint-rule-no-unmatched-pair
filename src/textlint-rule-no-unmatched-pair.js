@@ -1,5 +1,5 @@
 // MIT © 2018 azu
-import { splitAST, Syntax as SentenceSyntax } from "sentence-splitter";
+import { splitAST, SentenceSplitterSyntax } from "sentence-splitter";
 import { PairMaker } from "./parser/PairMaker.js";
 import { SourceCode } from "./parser/SourceCode.js";
 import { IgnoreNodeManager } from "textlint-rule-helper";
@@ -19,7 +19,7 @@ const report = context => {
                 Syntax.BlockQuote,
                 Syntax.Comment
             ]);
-            sentences.children.filter(node => node.type === SentenceSyntax.Sentence).forEach(sentence => {
+            sentences.children.filter(node => node.type === SentenceSplitterSyntax.Sentence).forEach(sentence => {
                 const source = new SourceCode(sentence.raw);
                 const pairMaker = new PairMaker();
                 const sentenceIndex = sentence.range[0];

@@ -31,7 +31,11 @@ tester.run("textlint-rule-no-unmatched-pair", rule, {
 1) item 1
 2) item 2
 3) item 3
-        `
+        `,
+        // GitHub Flavored Markdown
+        // https://github.com/orgs/community/discussions/16925
+        `> [!NOTE]
+> some content`
     ],
     invalid: [
         {

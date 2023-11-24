@@ -59,7 +59,7 @@
     ]
   },
   "dependencies": {
-    "sentence-splitter": "^3.0.11",
-    "textlint-rule-helper": "2.0.1"
+    "sentence-splitter": "^4.3.0",
+    "textlint-rule-helper": "^2.3.0"
   }
 }
