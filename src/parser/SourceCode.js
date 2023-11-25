@@ -17,7 +17,7 @@ export class SourceCode {
     }
 
     leaveContext(pairMark) {
-        const index = this.contextLocations.findIndex(context => {
+        const index = this.contextLocations.findIndex((context) => {
             return context.pairMark.key === pairMark.key;
         });
         if (index !== -1) {
@@ -29,7 +29,7 @@ export class SourceCode {
         if (!pairMark) {
             return this.contextLocations.length > 0;
         }
-        return this.contextLocations.some(contextLocation => contextLocation.pairMark.key === pairMark.key);
+        return this.contextLocations.some((contextLocation) => contextLocation.pairMark.key === pairMark.key);
     }
 
     /**

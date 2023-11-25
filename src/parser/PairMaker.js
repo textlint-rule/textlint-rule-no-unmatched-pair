@@ -72,7 +72,7 @@ const PAIR_MARKS = [
 // create entries
 // [start.key, mark]
 // [end.key, mark]
-const PAIR_MARKS_ENTRIES = PAIR_MARKS.map(mark => {
+const PAIR_MARKS_ENTRIES = PAIR_MARKS.map((mark) => {
     return [
         [mark.start, mark],
         [mark.end, mark]
@@ -86,13 +86,13 @@ const PAIR_MARKS_ENTRIES = PAIR_MARKS.map(mark => {
 const PAIR_MARKS_KEY_Map = new Map(PAIR_MARKS_ENTRIES);
 const matchPair = (string) => {
     return PAIR_MARKS_KEY_Map.get(string);
-}
+};
 // For readme
 // console.log(PAIR_MARKS.map(pair => `- ${pair.key}: \`${pair.start}\` and \`${pair.end}\``).join("\n"));
 export class PairMaker {
     /**
-     * @param {import("./SourceCode").SourceCode} sourceCode 
-     * @returns 
+     * @param {import("./SourceCode").SourceCode} sourceCode
+     * @returns
      */
     mark(sourceCode) {
         const string = sourceCode.read();
@@ -100,20 +100,20 @@ export class PairMaker {
             return;
         }
 
-        const matchedPair = matchPair(string)
-        if (!matchedPair){
+        const matchedPair = matchPair(string);
+        if (!matchedPair) {
             return;
         }
         // support nested pair
         // {"{test}"}
         if (sourceCode.isInContext(matchedPair)) {
             // check that string is end mark?
-            const pair = PAIR_MARKS.find(pair => pair.end === string);
+            const pair = PAIR_MARKS.find((pair) => pair.end === string);
             if (pair) {
                 sourceCode.leaveContext(pair);
             }
         } else {
-            const pair = PAIR_MARKS.find(pair => pair.start === string);
+            const pair = PAIR_MARKS.find((pair) => pair.start === string);
             if (pair) {
                 sourceCode.enterContext(pair);
             }
