@@ -40,10 +40,10 @@
     "trailingComma": "none"
   },
   "devDependencies": {
-    "lint-staged": "^7.3.0",
+    "lint-staged": "^15.1.0",
     "prettier": "^3.1.0",
-    "textlint-scripts": "^12.0.1",
-    "textlint-tester": "12.0.0"
+    "textlint-scripts": "^13.4.1",
+    "textlint-tester": "13.4.1"
   },
   "publishConfig": {
     "access": "public"
@@ -54,7 +54,7 @@
     ]
   },
   "dependencies": {
-    "sentence-splitter": "^4.3.0",
-    "textlint-rule-helper": "^2.3.0"
+    "sentence-splitter": "^5.0.0",
+    "textlint-rule-helper": "^2.3.1"
   }
 }
