@@ -48,11 +48,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "husky": {
-    "hooks": {
-      "precommit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css}": [
       "prettier --write"
