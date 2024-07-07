@@ -66,6 +66,16 @@ const PAIR_MARKS = [
         key: "隅付き括弧【】",
         start: `【`,
         end: `】`
+    },
+    {
+        key: "double guillemet «»",
+        start: "«",
+        end: "»"
+    },
+    {
+        key: "single guillemet ‹›",
+        start: "‹",
+        end: "›"
     }
 ];
 
