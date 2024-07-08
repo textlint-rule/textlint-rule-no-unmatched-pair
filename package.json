@@ -1,6 +1,6 @@
 {
   "name": "@textlint-rule/textlint-rule-no-unmatched-pair",
-  "version": "2.0.3",
+  "version": "2.0.2",
   "description": "textlint rule that check unmatched pairs like \"（\" and \")\"",
   "keywords": [
     "textlintrule"
