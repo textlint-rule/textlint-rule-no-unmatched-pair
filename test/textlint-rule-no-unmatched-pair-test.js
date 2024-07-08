@@ -37,7 +37,9 @@ tester.run("textlint-rule-no-unmatched-pair", rule, {
         // GitHub Flavored Markdown
         // https://github.com/orgs/community/discussions/16925
         `> [!NOTE]
-> some content`
+> some content`,
+        `Paul a dit : « Je viendrai demain » .`,
+        `Elle a écrit: « L’article est intitulé ‹ La technologie aujourd’hui › » .`
     ],
     invalid: [
         {
@@ -93,6 +95,24 @@ This pair mark is called double quote.`
                 {
                     line: 4,
                     column: 105
+                }
+            ]
+        },
+        {
+            text: `Paul a dit : « Je viendrai demain.`,
+            errors: [
+                {
+                    line: 1,
+                    column: 15
+                }
+            ]
+        },
+        {
+            text: `Elle a écrit: « L’article est intitulé ‹ La technologie aujourd’hui » .`,
+            errors: [
+                {
+                    line: 1,
+                    column: 41
                 }
             ]
         }

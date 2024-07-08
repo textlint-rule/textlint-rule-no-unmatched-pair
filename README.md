@@ -15,6 +15,8 @@ textlint rule that check unmatched pairs like `（` and `]`
 - 角括弧［］: `［` and `］`
 - 重角括弧〚〛: `〚` and `〛`
 - 隅付き括弧【】: `【` and `】`
+- double guillemet: `«` and `»`
+- single guillemet: `‹` and `›`
 
 ## Examples
 
