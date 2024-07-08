@@ -9,7 +9,7 @@
  * https://ja.wikipedia.org/wiki/%E6%8B%AC%E5%BC%A7
  */
 /**
- * @typedef {{key:string,start:string,end:string}[]} PairMark
+ * @typedef {{key:string,start:string,end:string,reverseInRtl:boolean}[]} PairMark
  */
 const PAIR_MARKS = [
     {
@@ -80,26 +80,34 @@ const PAIR_MARKS = [
     {
         key: "ornate parenthesis ﴾﴿",
         start: "﴾",
-        end: "﴿"
+        end: "﴿",
+        reverseInRtl: true
     }
 ];
 
 // create entries
 // [start.key, mark]
 // [end.key, mark]
-const PAIR_MARKS_ENTRIES = PAIR_MARKS.map((mark) => {
-    return [
-        [mark.start, mark],
-        [mark.end, mark]
-    ];
-}).flat(1);
+const PAIR_MARKS_ENTRIES = (rtl) =>
+    PAIR_MARKS.map((mark) => {
+        const newMark = Object.assign({}, mark);
+        if (rtl && newMark.reverseInRtl) {
+            [newMark.start, newMark.end] = [newMark.end, newMark.start];
+        }
+
+        return [
+            [newMark.start, newMark],
+            [newMark.end, newMark]
+        ];
+    }).flat(1);
 
 /**
  * Optimized Map
- * @type Map<string, {key:string,start:string,end:string}>
+ * @type Map<string, {key:string,start:string,end:string,reverseInRtl:boolean}>
  */
-const PAIR_MARKS_KEY_Map = new Map(PAIR_MARKS_ENTRIES);
-const matchPair = (string) => {
+const createPairMarksKeyMap = (rtl) => new Map(PAIR_MARKS_ENTRIES(rtl));
+const matchPair = (string, rtl) => {
+    const PAIR_MARKS_KEY_Map = createPairMarksKeyMap(rtl);
     return PAIR_MARKS_KEY_Map.get(string);
 };
 // For readme
@@ -107,15 +115,16 @@ const matchPair = (string) => {
 export class PairMaker {
     /**
      * @param {import("./SourceCode").SourceCode} sourceCode
+     * @param {boolean} rtl
      * @returns
      */
-    mark(sourceCode) {
+    mark(sourceCode, rtl) {
         const string = sourceCode.read();
         if (!string) {
             return;
         }
 
-        const matchedPair = matchPair(string);
+        const matchedPair = matchPair(string, rtl);
         if (!matchedPair) {
             return;
         }
@@ -123,12 +132,12 @@ export class PairMaker {
         // {"{test}"}
         if (sourceCode.isInContext(matchedPair)) {
             // check that string is end mark?
-            const pair = PAIR_MARKS.find((pair) => pair.end === string);
+            const pair = PAIR_MARKS.find((pair) => (rtl && pair.reverseInRtl ? pair.start : pair.end === string));
             if (pair) {
                 sourceCode.leaveContext(pair);
             }
         } else {
-            const pair = PAIR_MARKS.find((pair) => pair.start === string);
+            const pair = PAIR_MARKS.find((pair) => (rtl && pair.reverseInRtl ? pair.end : pair.start === string));
             if (pair) {
                 sourceCode.enterContext(pair);
             }

@@ -40,7 +40,13 @@ tester.run("textlint-rule-no-unmatched-pair", rule, {
 > some content`,
         `Paul a dit : « Je viendrai demain » .`,
         `Elle a écrit: « L’article est intitulé ‹ La technologie aujourd’hui › » .`,
-        `a test for ﴾ornate﴿ parenthesis`
+        `a test for ﴾ornate﴿ parenthesis`,
+        {
+            text: `كانت آية ﴿اقرأ﴾ أول آية نزلت من القرآن`,
+            options: {
+                rtl: true
+            }
+        }
     ],
     invalid: [
         {
@@ -123,6 +129,18 @@ This pair mark is called double quote.`
                 {
                     line: 1,
                     column: 13
+                }
+            ]
+        },
+        {
+            text: `كانت آية ﴿اقرأ أول آية نزلت من القرآن`,
+            options: {
+                rtl: true
+            },
+            errors: [
+                {
+                    line: 1,
+                    column: 11
                 }
             ]
         }
