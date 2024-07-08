@@ -17,6 +17,7 @@ textlint rule that check unmatched pairs like `（` and `]`
 - 隅付き括弧【】: `【` and `】`
 - double guillemet: `«` and `»`
 - single guillemet: `‹` and `›`
+- ornate parenthesis `﴾` and `﴿`
 
 ## Examples
 
@@ -49,6 +50,20 @@ Via `.textlintrc`(Recommended)
 {
     "rules": {
         "@textlint-rule/no-unmatched-pair": true
+    }
+}
+```
+
+Some pair characters like the ornate parenthesis `﴾﴿` are strictly left or right oriented in every context.
+To use such characters in rtl context, you need to reverse their usage.
+You can use this rule by turning on the rtl option:
+
+```json
+{
+    "rules": {
+        "@textlint-rule/no-unmatched-pair": {
+          "rtl": true
+        }
     }
 }
 ```

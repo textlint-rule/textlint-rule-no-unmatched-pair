@@ -4,7 +4,7 @@ import { PairMaker } from "./parser/PairMaker.js";
 import { SourceCode } from "./parser/SourceCode.js";
 import { IgnoreNodeManager } from "textlint-rule-helper";
 
-const report = (context) => {
+const report = (context, options) => {
     const { Syntax, report, RuleError } = context;
     const ignoreNodeManager = new IgnoreNodeManager();
     return {
@@ -30,7 +30,7 @@ const report = (context) => {
                         const characterIndex = sentenceIndex + source.index;
                         // console.log(characterIndex, source.text[source.index], ignoreNodeManager.isIgnoredIndex(characterIndex));
                         if (!ignoreNodeManager.isIgnoredIndex(characterIndex)) {
-                            pairMaker.mark(source);
+                            pairMaker.mark(source, options.rtl);
                         }
                         source.peek();
                     }
