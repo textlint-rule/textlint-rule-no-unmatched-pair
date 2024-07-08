@@ -76,6 +76,11 @@ const PAIR_MARKS = [
         key: "single guillemet ‹›",
         start: "‹",
         end: "›"
+    },
+    {
+        key: "ornate parenthesis ﴾﴿",
+        start: "﴾",
+        end: "﴿"
     }
 ];
 

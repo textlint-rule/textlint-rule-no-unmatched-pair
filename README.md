@@ -17,6 +17,7 @@ textlint rule that check unmatched pairs like `（` and `]`
 - 隅付き括弧【】: `【` and `】`
 - double guillemet: `«` and `»`
 - single guillemet: `‹` and `›`
+- ornate parenthesis `﴾` and `﴿`
 
 ## Examples
 
