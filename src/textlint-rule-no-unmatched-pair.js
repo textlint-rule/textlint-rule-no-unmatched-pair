@@ -39,10 +39,10 @@ const report = (context) => {
                         report(
                             node,
                             new RuleError(
-                                `Not found pair character for ${contextLocation.pairMark.start}.
+                                `Cannot find a pairing character for ${contextLocation.pairMark.start}.
                     
 You should close this sentence with ${contextLocation.pairMark.end}.
-This pair mark is called ${contextLocation.pairMark.key}.`,
+This pair of marks is called ${contextLocation.pairMark.key}.`,
                                 {
                                     index: sentenceIndex - node.range[0] + contextLocation.index
                                 }

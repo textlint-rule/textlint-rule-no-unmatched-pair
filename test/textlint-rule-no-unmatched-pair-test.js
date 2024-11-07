@@ -47,10 +47,10 @@ tester.run("textlint-rule-no-unmatched-pair", rule, {
             errors: [
                 {
                     index: 4,
-                    message: `Not found pair character for （.
+                    message: `Cannot find a pairing character for （.
                     
 You should close this sentence with ）.
-This pair mark is called 丸括弧（）.`
+This pair of marks is called 丸括弧（）.`
                 }
             ]
         },
@@ -59,10 +59,10 @@ This pair mark is called 丸括弧（）.`
             errors: [
                 {
                     index: 11,
-                    message: `Not found pair character for ".
+                    message: `Cannot find a pairing character for ".
                     
 You should close this sentence with ".
-This pair mark is called double quote.`
+This pair of marks is called double quote.`
                 }
             ]
         },
